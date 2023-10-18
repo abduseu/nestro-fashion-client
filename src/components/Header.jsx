@@ -20,27 +20,27 @@ const Header = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/add">Add Product</NavLink></li>
         <li><NavLink to="/cart">My Cart</NavLink></li>
-        <li><NavLink to="/login" className="btn btn-outline btn-sm">Login</NavLink></li>
+        <li><NavLink to="/login" className="navbtn rounded-lg">Login</NavLink></li>
     </>
     const linksPrivate = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/add">Add Product</NavLink></li>
         <li><NavLink to="/cart">My Cart</NavLink></li>
-        <li><NavLink onClick={handleSignout} className="btn btn-outline btn-sm">Signout</NavLink></li>
+        <li><NavLink onClick={handleSignout} className="btn bg-black text-white btn-sm">Signout</NavLink></li>
     </>
 
     return (
 <div className="py-4">
-            <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex flex-col md:flex-row md:gap-10 items-center justify-between">
                 <div>
-                    <Link to="/" className="text-5xl font-thin">NEST</Link>
+                    <Link to="/" className="text-4xl font-black">NESTRO</Link>
                 </div>
                 <div className="mt-6 md:mt-0">
-                    <nav>
-                        <ul className={`md:space-x-12 grid ${user ? 'grid-cols-2' : 'grid-cols-3'}  gap-2 md:flex list-none text-lg font-bold`}>
+                    <div>
+                        <ul className={`md:space-x-12 grid ${user ? 'grid-cols-2' : 'grid-cols-2'}  gap-4 md:flex list-none font-semibold text-xl uppercase`}>
                         {user ? linksPrivate : links}
                         </ul>
-                    </nav>
+                    </div>
                 </div>
             </div>
             <div className="flex items-center justify-center md:justify-end mt-4">

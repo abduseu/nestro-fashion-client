@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import AuthProvider from "./providers/AuthProvider";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
+import ErrorPage from "./pages/ErrorPage";
 
 
 
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <h2>Page Not Found!!!</h2>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: '/',

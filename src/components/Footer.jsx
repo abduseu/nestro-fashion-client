@@ -2,8 +2,8 @@ const Footer = () => {
     return (
         <div className="footer justify-between py-10 xl:container mx-auto">
             <aside>
-                <h2 className="text-5xl font-thin">NEST</h2>
-                <p>Nest Fashion Ltd.<br />Selling fashionable clothing since 1992</p>
+                <h2 className="text-4xl font-bold">NESTRO</h2>
+                <p>Nestro Fashion Ltd.<br />Selling fashionable clothing since 1992</p>
             </aside>
             <nav>
                 <header className="footer-title">Services</header>
