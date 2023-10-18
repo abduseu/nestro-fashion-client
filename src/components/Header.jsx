@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import {AiFillThunderbolt} from 'react-icons/ai';
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext)
@@ -33,7 +34,8 @@ const Header = () => {
 <div className="py-4">
             <div className="flex flex-col md:flex-row md:gap-10 items-center justify-between">
                 <div>
-                    <Link to="/" className="text-4xl font-black">NESTRO</Link>
+                    
+                    <Link to="/" className="text-4xl font-black flex items-center gap-2"><AiFillThunderbolt/>NESTRO</Link>
                 </div>
                 <div className="mt-6 md:mt-0">
                     <div>
