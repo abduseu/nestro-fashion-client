@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
@@ -6,6 +6,7 @@ import { updateProfile } from "firebase/auth";
 const RegistrationPage = () => {
     const { createEmail } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [validationError, setValidationError] = useState([])
 
     const handleRegister = e =>{
         e.preventDefault()
@@ -14,6 +15,20 @@ const RegistrationPage = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
+
+        //Signup validation
+        setValidationError([])
+
+        if(password.length < 6){
+            setValidationError('Password is less than 6 characters!')
+            return
+        }else if(!/[A-Z]/.test(password)){
+            setValidationError('Password should have atleast one capital letter!')
+            return
+        }else if(!/[@#$%^&+=]/.test(password)){
+            setValidationError('Add atleast one special character: @#$%^&+=')
+            return
+        }
 
         createEmail(email, password)
             .then((result) => {
@@ -36,9 +51,7 @@ const RegistrationPage = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-
-                console.log(errorMessage, errorCode)
+                setValidationError(errorCode)
             });
     }
 
@@ -81,6 +94,9 @@ const RegistrationPage = () => {
                             <div className="form-control mt-6">
                                 <button className="bg-black text-white hover:bg-green-600 font-bold w-full py-2 rounded">Sign up</button>
                             </div>
+                            <p className="py-4 text-red-600 font-semibold">
+                                { validationError }
+                            </p>
                         </form>
                     </div>
                 </div>

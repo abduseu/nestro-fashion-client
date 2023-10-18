@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
     const { signinEmail, signinGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [validationError, setValidationError] = useState([])
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -24,8 +25,13 @@ const LoginPage = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage, errorCode)
+                //login validation
+                if(errorCode === 'auth/invalid-login-credentials'){
+                    setValidationError('Email or password does not match!')
+                    
+                }else{
+                    setValidationError(errorCode)
+                }
             });
     }
 
@@ -36,7 +42,7 @@ const LoginPage = () => {
                 navigate('/')
             })
             .catch(error => {
-                console.log(error.message)
+                setValidationError(error.message)
             })
     }
 
@@ -73,6 +79,9 @@ const LoginPage = () => {
                         <div className="form-control">
                             <button onClick={handleGoogle} className="bg-blue-600 text-white hover:bg-green-600 font-bold w-full py-2 rounded">Google</button>
                         </div>
+                        <p className="py-4 text-red-600 font-semibold">
+                            { validationError }
+                        </p>
                     </div>
                 </div>
             </div>
