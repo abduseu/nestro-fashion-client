@@ -7,6 +7,9 @@ import {
 } from "react-router-dom";
 import Root from "./components/Root";
 import HomePage from "./pages/HomePage";
+import AuthProvider from "./providers/AuthProvider";
+import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
 
 
 
@@ -14,12 +17,20 @@ import HomePage from "./pages/HomePage";
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root/>,
+    element: <Root />,
     errorElement: <h2>Page Not Found!!!</h2>,
     children: [
       {
         path: '/',
-        element: <HomePage/>,
+        element: <HomePage />,
+      },
+      {
+        path: '/login',
+        element: <LoginPage />,
+      },
+      {
+        path: '/signup',
+        element: <RegistrationPage />,
       },
     ]
   }
@@ -28,6 +39,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
