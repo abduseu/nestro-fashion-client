@@ -2,7 +2,7 @@ import { AiFillThunderbolt } from "react-icons/ai";
 
 const Footer = () => {
     return (
-        <div className="footer justify-between py-10 xl:container mx-auto">
+        <div className="footer justify-between py-10">
             <aside>
                 <h2 className="text-4xl font-bold flex items-center gap-2"><AiFillThunderbolt/>NESTRO</h2>
                 <p>Nestro Fashion Ltd.<br />Selling fashionable clothing since 1992</p>
