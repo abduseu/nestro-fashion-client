@@ -1,9 +1,11 @@
 import Banner from "../components/Banner";
+import Newsletter from "../components/Newsletter";
+import Sale from "../components/Sale";
 
 const HomePage = () => {
     return (
         <div>
-            <Banner />
+            <Banner></Banner>
 
             {/* Brand Section */}
             <div className="bg-black text-white my-14 rounded-lg lg:flex lg:justify-between">
@@ -18,19 +20,10 @@ const HomePage = () => {
             </div>
 
             {/* Extra section 1 */}
-            <div>
-                New Araival
-            </div>
+            <Sale></Sale>
 
             {/* Extra section 2 */}
-            <div>
-                Sale Now
-            </div>
-
-            {/* Extra section 3 */}
-            <div>
-                News Letter
-            </div>
+            <Newsletter></Newsletter>
         </div>
     );
 };

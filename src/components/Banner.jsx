@@ -5,11 +5,12 @@ const Banner = () => {
                 <h2>LET’S <br />
                     EXPLORE <br />
                     <span className="bg-green-600 text-white">NESTRO</span> <br />
-                    CLOTHES.</h2>
+                    CLOTHES.
+                </h2>
             </div>
             <div className="max-w-2xl">
                 <div className="lg:p-20">
-                <img src="https://i.ibb.co/LPJBDm7/banner-model-1.png" />
+                    <img src="https://i.ibb.co/LPJBDm7/banner-model-1.png" />
                 </div>
             </div>
 
