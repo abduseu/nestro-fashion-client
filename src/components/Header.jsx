@@ -19,15 +19,15 @@ const Header = () => {
     //Navlink
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/add">Add Product</NavLink></li>
+        <li><NavLink to="/add-product">Add Product</NavLink></li>
         <li><NavLink to="/cart">My Cart</NavLink></li>
         <li><NavLink to="/login" className="navbtn rounded-lg">Login</NavLink></li>
     </>
     const linksPrivate = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/add">Add Product</NavLink></li>
+        <li><NavLink to="/add-product">Add Product</NavLink></li>
         <li><NavLink to="/cart">My Cart</NavLink></li>
-        <li><NavLink onClick={handleSignout} className="btn bg-black text-white btn-sm">Signout</NavLink></li>
+        <li><NavLink onClick={handleSignout} className="navbtn rounded-lg">Signout</NavLink></li>
     </>
 
     return (

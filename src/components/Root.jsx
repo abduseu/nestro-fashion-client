@@ -15,7 +15,7 @@ const Root = () => {
                     <Outlet></Outlet>
                 </div>
             </main>
-            <footer className="bg-neutral text-neutral-content">
+            <footer className="bg-black text-white">
                 <Footer></Footer>
             </footer>
         </div>

@@ -11,6 +11,8 @@ import AuthProvider from "./providers/AuthProvider";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import ErrorPage from "./pages/ErrorPage";
+import AddProductPage from "./pages/AddProductPage";
+import CartPage from "./pages/CartPage";
 
 
 
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomePage />,
+      },
+      {
+        path: '/add-product',
+        element: <AddProductPage />,
+      },
+      {
+        path: '/cart',
+        element: <CartPage />,
       },
       {
         path: '/login',
