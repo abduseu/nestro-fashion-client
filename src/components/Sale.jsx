@@ -2,8 +2,8 @@ const Sale = () => {
     return (
         <div className="bg-green-600 lg:flex text-center items-center lg:justify-around rounded-lg">
             <div className="max-w-2xl">
-                <div className="lg:p-20 transform -scale-x-100">
-                    <img src="https://i.ibb.co/4t2s5jW/banner-model-4.png" />
+                <div className="md:p-20 p-10 transform -scale-x-100">
+                    <img src="https://i.ibb.co/ScX4RkY/banner-model-3.png" />
                 </div>
             </div>
             <div className="font-black max-w-2xl  p-10 md:p-20">

@@ -7,7 +7,6 @@ const HomePage = () => {
         <div>
             <Banner></Banner>
 
-            {/* Brand Section */}
             <div className="bg-black text-white my-14 rounded-lg lg:flex lg:justify-between">
                 <div className="p-5 md:p-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full">
                     <li>item-1</li>
@@ -19,10 +18,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* Extra section 1 */}
             <Sale></Sale>
-
-            {/* Extra section 2 */}
             <Newsletter></Newsletter>
         </div>
     );
