@@ -16,7 +16,9 @@ const Root = () => {
                 </div>
             </main>
             <footer className="bg-black text-white">
-                <Footer></Footer>
+                <div className="mx-5 mt-6">
+                    <Footer></Footer>
+                </div>
             </footer>
         </div>
     );

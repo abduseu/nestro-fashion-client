@@ -19,7 +19,6 @@ const Header = () => {
     //Navlink
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/add-product">Add Product</NavLink></li>
         <li><NavLink to="/cart">My Cart</NavLink></li>
         <li><NavLink to="/login" className="navbtn rounded-lg">Login</NavLink></li>
     </>
@@ -39,7 +38,7 @@ const Header = () => {
                 </div>
                 <div className="mt-6 md:mt-0">
                     <div>
-                        <ul className={`md:space-x-12 grid ${user ? 'grid-cols-2' : 'grid-cols-2'}  gap-4 md:flex list-none font-semibold text-xl uppercase`}>
+                        <ul className={`md:space-x-12 grid ${user ? 'grid-cols-2' : 'grid-cols-3'}  gap-4 md:flex list-none font-semibold text-xl uppercase`}>
                         {user ? linksPrivate : links}
                         </ul>
                     </div>

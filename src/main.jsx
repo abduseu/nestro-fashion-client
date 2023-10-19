@@ -13,6 +13,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import ErrorPage from "./pages/ErrorPage";
 import AddProductPage from "./pages/AddProductPage";
 import CartPage from "./pages/CartPage";
+import Private from "./components/Private";
 
 
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/add-product',
-        element: <AddProductPage />,
+        element: <Private><AddProductPage /></Private>,
       },
       {
         path: '/cart',
