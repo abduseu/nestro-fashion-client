@@ -1,6 +1,11 @@
-const UpdateProductPage = () => {
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-    const handleUpdateProduct = e =>{
+const UpdateProductPage = () => {
+    const product = useLoaderData()
+    const { _id, name, brand, type, price, description, rating, image } = product
+
+    const handleUpdateProduct = e => {
         e.preventDefault()
         const form = e.target
         const name = form.name.value
@@ -11,9 +16,24 @@ const UpdateProductPage = () => {
         const rating = form.rating.value
         const image = form.image.value
 
-        const product = {name, brand, type, price, description, rating, image}
+        const product = { name, brand, type, price, description, rating, image }
 
-        console.log('form:', product)
+        fetch(`http://localhost:5000/products/${_id}`, {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire(
+                        'Product Updated!',
+                        'Product has been updated',
+                        'success'
+                    )
+                }
+            })
 
     }
 
@@ -27,11 +47,11 @@ const UpdateProductPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div>
                             <h3>Name:</h3>
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" defaultValue={name} placeholder="Name" className="input input-bordered w-full" />
                         </div>
                         <div>
                             <h3>Brand Name:</h3>
-                            <select name="brandName" className="select select-bordered w-full">
+                            <select name="brandName" defaultValue={brand} className="select select-bordered w-full">
                                 <option value="armani">Armani</option>
                                 <option value="champion">Champion</option>
                                 <option value="ck">CK</option>
@@ -42,23 +62,23 @@ const UpdateProductPage = () => {
                         </div>
                         <div>
                             <h3>Type:</h3>
-                            <input type="text" name="type" placeholder="ex. shirt, dress, shoe etc." className="input input-bordered w-full" />
+                            <input type="text" name="type" defaultValue={type} placeholder="ex. shirt, dress, shoe etc." className="input input-bordered w-full" />
                         </div>
                         <div>
                             <h3>Price:</h3>
-                            <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
+                            <input type="text" name="price" defaultValue={price} placeholder="Price" className="input input-bordered w-full" />
                         </div>
                         <div>
                             <h3>Description:</h3>
-                            <input type="text" name="shortDescription" placeholder="Description" className="input input-bordered w-full" />
+                            <input type="text" name="shortDescription" defaultValue={description} placeholder="Description" className="input input-bordered w-full" />
                         </div>
                         <div>
                             <h3>Rating:</h3>
-                            <input type="text" name="rating" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="rating" defaultValue={rating} placeholder="Name" className="input input-bordered w-full" />
                         </div>
                         <div>
                             <h3>Image:</h3>
-                            <input type="url" name="image" placeholder="Paste image url here" className="input input-bordered w-full" />
+                            <input type="url" name="image" defaultValue={image} placeholder="Paste image url here" className="input input-bordered w-full" />
                         </div>
                     </div>
                     <div className="text-center pt-10">

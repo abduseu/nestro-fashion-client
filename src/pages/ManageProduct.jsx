@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ManageProduct = () => {
@@ -13,18 +13,18 @@ const ManageProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.deletedCount > 0){
+                if (data.deletedCount > 0) {
                     Swal.fire(
                         'Deleted!',
                         'Your Product has been deleted.',
                         'success'
                     )
-                    const remaining = products.filter(x=> x._id !== id )
+                    const remaining = products.filter(x => x._id !== id)
                     setProducts(remaining)
                 }
             })
     }
-    
+
     return (
         <div className="bg-slate-100 rounded-[60px]">
             <div className="text-center font-black text-2xl md:text-4xl p-10 md:p-20">
@@ -51,7 +51,10 @@ const ManageProduct = () => {
                                         <td>{x.name}</td>
                                         <td>{x.brand}</td>
                                         <td>{x.price}</td>
-                                        <td><button onClick={() => handleDelete(x._id)} className="btn">X</button></td>
+                                        <td>
+                                            <Link to={`/update-product/${x._id}`}><button className="btn btn-xs">Edit</button></Link>
+                                            <button onClick={() => handleDelete(x._id)} className="btn btn-xs">X</button>
+                                        </td>
                                     </tr>)
                             }
                         </tbody>
