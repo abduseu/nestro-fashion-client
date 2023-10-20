@@ -23,7 +23,7 @@ const UpdateProductPage = () => {
                 <h2>Update Product</h2>
             </div>
             <div className="pb-10 md:pb-20 px-10 md:px-20">
-                <form>
+                <form onSubmit={handleUpdateProduct}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div>
                             <h3>Name:</h3>
@@ -55,7 +55,7 @@ const UpdateProductPage = () => {
                         </div>
                     </div>
                     <div className="text-center pt-10">
-                        <button onClick={handleUpdateProduct} className="btn btn-neutral">Add product</button>
+                        <button className="btn btn-neutral">Add product</button>
                     </div>
                 </form>
             </div>
