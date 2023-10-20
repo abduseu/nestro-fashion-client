@@ -31,7 +31,14 @@ const UpdateProductPage = () => {
                         </div>
                         <div>
                             <h3>Brand Name:</h3>
-                            <input type="text" name="brandName" placeholder="Brand Name" className="input input-bordered w-full" />
+                            <select name="brandName" className="select select-bordered w-full">
+                                <option value="Armani">Armani</option>
+                                <option value="Champion">Champion</option>
+                                <option value="CK">CK</option>
+                                <option value="D&G">D&G</option>
+                                <option value="Levi's">Levi's</option>
+                                <option value="Nike">Nike</option>
+                            </select>
                         </div>
                         <div>
                             <h3>Type:</h3>
@@ -55,7 +62,7 @@ const UpdateProductPage = () => {
                         </div>
                     </div>
                     <div className="text-center pt-10">
-                        <button className="btn btn-neutral">Add product</button>
+                        <button className="btn btn-neutral">Update product</button>
                     </div>
                 </form>
             </div>

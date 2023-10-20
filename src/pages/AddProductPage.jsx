@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 const AddProductPage = () => {
 
     const handleAddProduct = e => {
@@ -11,9 +13,26 @@ const AddProductPage = () => {
         const rating = form.rating.value
         const image = form.image.value
 
-        const product = {name, brand, type, price, description, rating, image}
+        const product = { name, brand, type, price, description, rating, image }
 
         console.log('form:', product)
+
+        fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Product Added!',
+                        'Your Product has beed Added!',
+                        'success'
+                    )
+                }
+            })
     }
 
     return (
@@ -26,31 +45,38 @@ const AddProductPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div>
                             <h3>Name:</h3>
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" required />
                         </div>
                         <div>
                             <h3>Brand Name:</h3>
-                            <input type="text" name="brandName" placeholder="Brand Name" className="input input-bordered w-full" />
+                            <select name="brandName" className="select select-bordered w-full">
+                                <option value="Armani">Armani</option>
+                                <option value="Champion">Champion</option>
+                                <option value="CK">CK</option>
+                                <option value="D&G">D&G</option>
+                                <option value="Levi's">Levi's</option>
+                                <option value="Nike">Nike</option>
+                            </select>
                         </div>
                         <div>
                             <h3>Type:</h3>
-                            <input type="text" name="type" placeholder="ex. shirt, dress, shoe etc." className="input input-bordered w-full" />
+                            <input type="text" name="type" placeholder="ex. shirt, dress, shoe etc." className="input input-bordered w-full" required />
                         </div>
                         <div>
                             <h3>Price:</h3>
-                            <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
+                            <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" required />
                         </div>
                         <div>
                             <h3>Description:</h3>
-                            <input type="text" name="shortDescription" placeholder="Description" className="input input-bordered w-full" />
+                            <input type="text" name="shortDescription" placeholder="Description" className="input input-bordered w-full" required />
                         </div>
                         <div>
                             <h3>Rating:</h3>
-                            <input type="text" name="rating" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="rating" placeholder="Name" className="input input-bordered w-full" required />
                         </div>
                         <div>
                             <h3>Image:</h3>
-                            <input type="url" name="image" placeholder="Paste image url here" className="input input-bordered w-full" />
+                            <input type="url" name="image" placeholder="Paste image url here" className="input input-bordered w-full" required />
                         </div>
                     </div>
                     <div className="text-center pt-10">
