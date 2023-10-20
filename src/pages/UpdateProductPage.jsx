@@ -32,12 +32,12 @@ const UpdateProductPage = () => {
                         <div>
                             <h3>Brand Name:</h3>
                             <select name="brandName" className="select select-bordered w-full">
-                                <option value="Armani">Armani</option>
-                                <option value="Champion">Champion</option>
-                                <option value="CK">CK</option>
-                                <option value="D&G">D&G</option>
-                                <option value="Levi's">Levi's</option>
-                                <option value="Nike">Nike</option>
+                                <option value="armani">Armani</option>
+                                <option value="champion">Champion</option>
+                                <option value="ck">CK</option>
+                                <option value="d&g">D&G</option>
+                                <option value="levi's">Levi's</option>
+                                <option value="nike">Nike</option>
                             </select>
                         </div>
                         <div>
