@@ -16,7 +16,7 @@ const HomePage = () => {
                     <div className="p-5 gap-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full">
                         {
                             brands.map(x =>
-                                <Link key={x.name} to={`/${x.name.toLowerCase()}`}>
+                                <Link key={x.name} to={`/brands/${x.name.toLowerCase()}`}>
                                     <div>
                                         <img src={x.image_url} />
                                         <h3>{x.name}</h3>
