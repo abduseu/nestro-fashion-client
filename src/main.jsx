@@ -14,6 +14,7 @@ import ErrorPage from "./pages/ErrorPage";
 import AddProductPage from "./pages/AddProductPage";
 import CartPage from "./pages/CartPage";
 import Private from "./components/Private";
+import UpdateProductPage from "./pages/UpdateProductPage";
 
 
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/add-product',
         element: <Private><AddProductPage /></Private>,
+      },
+      {
+        path: '/update-product',
+        element: <Private><UpdateProductPage /></Private>,
       },
       {
         path: '/cart',
