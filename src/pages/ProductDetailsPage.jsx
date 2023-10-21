@@ -38,7 +38,7 @@ const ProductDetailsPage = () => {
 
     return (
         <div className="bg-slate-100 rounded-[60px]">
-            <div className="text-center font-black text-2xl md:text-4xl p-10 md:p-20">
+            <div className="text-center font-black text-xl md:text-4xl p-10 md:p-20">
                 <h2>Product Details</h2>
             </div>
             <div className="pb-10 md:pb-20 px-10 md:px-20">
@@ -46,8 +46,8 @@ const ProductDetailsPage = () => {
                     <div>
                         <img src={image} alt="" />
                     </div>
-                    <div className="px-5 text-xl md:space-y-4">
-                        <div className="font-bold text-3xl">
+                    <div className="px-5 text-xl">
+                        <div className="font-bold text-2xl">
                             {name}
                         </div>
                         <div>
