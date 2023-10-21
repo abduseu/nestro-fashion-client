@@ -1,7 +1,36 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetailsPage = () => {
-    const { name, brand, type, price, description, rating, image } = useLoaderData()
+    const { _id, name, brand, type, price, description, rating, image } = useLoaderData()
+
+    const handleAddCart = ()=>{
+        const userId = 'mukles'
+        const productId = _id
+        const productName = name
+        const quantity = 1
+        const productPrice = price
+
+        const cart = {userId, productId, productName, quantity, productPrice}
+
+        
+        fetch('http://localhost:5000/cart', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(cart)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire(
+                    'Product Added!',
+                    'Your Product added to shopping cart!',
+                    'success'
+                )
+            }
+        })
+    }
 
 
     return (
@@ -29,25 +58,25 @@ const ProductDetailsPage = () => {
                         </div>
                         <div>
                             <div className="rating">
-                                {(parseInt(rating)==0 || !rating) && <input type="radio" name="rating-1" className="rating-hidden" checked />}
+                                {(parseInt(rating)==0 || !rating) && <input type="radio" name="rating-1" className="rating-hidden" checked readOnly />}
                                 {parseInt(rating)==1 ? 
-                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked /> : 
+                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked readOnly /> : 
                                 <input type="radio" name="rating-1" className="mask mask-star bg-green-600" />
                                 }
                                 {parseInt(rating)==2 ? 
-                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked /> : 
+                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked readOnly /> : 
                                 <input type="radio" name="rating-1" className="mask mask-star bg-green-600" />
                                 }
                                 {parseInt(rating)==3 ? 
-                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked /> : 
+                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked readOnly /> : 
                                 <input type="radio" name="rating-1" className="mask mask-star bg-green-600" />
                                 }
                                 {parseInt(rating)==4 ? 
-                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked /> : 
+                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked readOnly /> : 
                                 <input type="radio" name="rating-1" className="mask mask-star bg-green-600" />
                                 }
                                 {parseInt(rating)==5 ? 
-                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked /> : 
+                                <input type="radio" name="rating-1" className="mask mask-star bg-green-600" checked readOnly /> : 
                                 <input type="radio" name="rating-1" className="mask mask-star bg-green-600" />
                                 }
                             </div>
@@ -57,7 +86,7 @@ const ProductDetailsPage = () => {
                     </div>
                 </div>
                 <div className="text-center pt-10">
-                    <button className="btn btn-neutral">Add to cart</button>
+                    <button onClick={handleAddCart} className="btn btn-neutral">Add to cart</button>
                 </div>
             </div>
         </div>
