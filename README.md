@@ -2,7 +2,7 @@
 
 ** Live link: ** 
 
-https://https://nest-fashion.web.app/
+https://nest-fashion.web.app/
 
  
 
