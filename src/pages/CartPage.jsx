@@ -15,7 +15,7 @@ const CartPage = () => {
                 console.log(data)
                 setCart(data)
             })
-    }, [])
+    }, [filterEmail])
 
 
     const handleDeleteCart = (id) => {
