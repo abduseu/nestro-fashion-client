@@ -19,10 +19,10 @@ const BrandPage = () => {
                 </div>
 
             </div>
-            <div className="bg-slate-100 my-14 flex justify-center rounded-lg">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div className="my-14 flex justify-center rounded-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                     {
-                        products.slice(0,4).map(x => <ProductCard key={x._id} obj={x}></ProductCard>)
+                        products.map(x => <ProductCard key={x._id} obj={x}></ProductCard>)
                     }
                 </div>
             </div>

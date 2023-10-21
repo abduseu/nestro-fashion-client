@@ -1,4 +1,4 @@
-# Nestro Fashion Assignment Project
+# Nestro Fashion Online Store Project
 
 ** Live link: ** 
 
