@@ -31,22 +31,22 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomePage />,
-        loader: ()=> fetch(`http://localhost:5000/brands`)
+        loader: ()=> fetch(`https://nest-server-ten.vercel.app/brands`)
       },
       {
         path: '/brands/:id',
         element: <BrandPage />,
-        loader: ({params})=> fetch(`http://localhost:5000/brands/${params.id}`)
+        loader: ({params})=> fetch(`https://nest-server-ten.vercel.app/brands/${params.id}`)
       },
       {
         path: '/products/:id',
         element: <Private><ProductDetailsPage /></Private>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({params})=> fetch(`https://nest-server-ten.vercel.app/products/${params.id}`)
       },
       {
         path: '/manage-product',
         element: <Private><ManageProduct /></Private>,
-        loader: ()=> fetch(`http://localhost:5000/products`)
+        loader: ()=> fetch(`https://nest-server-ten.vercel.app/products`)
       },
       {
         path: '/add-product',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: '/update-product/:id',
         element: <Private><UpdateProductPage /></Private>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({params})=> fetch(`https://nest-server-ten.vercel.app/products/${params.id}`)
       },
       {
         path: '/cart',

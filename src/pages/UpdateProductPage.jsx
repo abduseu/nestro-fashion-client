@@ -18,7 +18,7 @@ const UpdateProductPage = () => {
 
         const product = { name, brand, type, price, description, rating, image }
 
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://nest-server-ten.vercel.app/products/${_id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(product)

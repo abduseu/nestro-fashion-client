@@ -17,7 +17,7 @@ const ProductDetailsPage = () => {
         const cart = {userId, productId, productName, quantity, productPrice}
 
         
-        fetch('http://localhost:5000/cart', {
+        fetch('https://nest-server-ten.vercel.app/cart', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(cart)

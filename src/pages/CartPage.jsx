@@ -9,7 +9,7 @@ const CartPage = () => {
     //send filter via post method
     const filterEmail = user.email
     useEffect(() => {
-        fetch(`http://localhost:5000/cart/${filterEmail}`)
+        fetch(`https://nest-server-ten.vercel.app/cart/${filterEmail}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -19,7 +19,7 @@ const CartPage = () => {
 
 
     const handleDeleteCart = (id) => {
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://nest-server-ten.vercel.app/cart/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
