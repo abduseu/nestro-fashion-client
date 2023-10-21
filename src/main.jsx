@@ -17,6 +17,7 @@ import Private from "./components/Private";
 import UpdateProductPage from "./pages/UpdateProductPage";
 import BrandPage from "./pages/BrandPage";
 import ManageProduct from "./pages/ManageProduct";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 
 
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
         path: '/brands/:id',
         element: <BrandPage />,
         loader: ({params})=> fetch(`http://localhost:5000/brands/${params.id}`)
+      },
+      {
+        path: '/products/:id',
+        element: <ProductDetailsPage />,
+        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
       },
       {
         path: '/manage-product',
